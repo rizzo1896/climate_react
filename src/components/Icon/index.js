@@ -1,17 +1,17 @@
 import React from "react";
 import Lottie from "react-lottie";
 import styled from "styled-components";
-import Icons from "../../assets/rainy-icon.json";
 
 const Container = styled.div`
-    width: 100px;
+  width: 100px;
 `;
 
-function Icon() {
+function Icon(props) {
+  const { data } = props;
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: Icons,
+    animationData: data,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },

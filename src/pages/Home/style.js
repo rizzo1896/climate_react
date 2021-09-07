@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import image from "../../assets/valentin-muller-bWtd1ZyEy6w-unsplash.jpg";
 
 export const MainContainer = styled.div`
   width: 70vw;
@@ -7,17 +6,13 @@ export const MainContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background-image: url(${image});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 `;
 
 export const InfoBox = styled.div`
   z-index: 10;
   margin-bottom: 100px;
   width: 45vw;
-  color: ${(props)=> props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const InfoContent = styled.div`

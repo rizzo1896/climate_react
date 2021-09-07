@@ -10,6 +10,7 @@ import {
   Icon,
 } from "./style";
 import { Icons } from "../../components";
+import IconSvg from "../../assets/icons/rainy-icon.json";
 
 function Home() {
   return (
@@ -24,7 +25,7 @@ function Home() {
             </WrapInfo>
             <WrapInfo>
               <Icon>
-                <Icons />
+                <Icons data={IconSvg} />
               </Icon>
             </WrapInfo>
           </InfoContent>
