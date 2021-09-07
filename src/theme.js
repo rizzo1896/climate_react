@@ -1,8 +1,9 @@
 const theme = {
   colors: {
-    primary: "#dddcccee",
+    primary: "#eee",
   },
   fonts: {
+    primary: "'Jost', sans-serif",
     regular: "Roboto, sans-serif",
   },
 };
