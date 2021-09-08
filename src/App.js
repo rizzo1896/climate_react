@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     getWeather
       .get(
-        `/data/2.5/weather?lat=${lat}&lon=${lon}&appid=03838cfa6af6494abe9a10e2f9d3ef17&units=metric`
+        `/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY_WEATHER}&units=metric`
       )
       .then((res) => {
         console.log(res.data);
