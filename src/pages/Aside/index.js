@@ -11,7 +11,7 @@ const Aside = () => {
   const Submit = (e) => {
     getWeather
       .get(
-        `/data/2.5/weather?q=${SearchValue}&appid=${process.env.API_KEY_WEATHER}&units=metric`
+        `/data/2.5/weather?q=${SearchValue}&appid=${process.env.REACT_APP_API_KEY_WEATHER}&units=metric`
       )
       .then((res) => {
         dispatch({

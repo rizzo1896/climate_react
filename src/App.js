@@ -12,6 +12,7 @@ function App() {
   const [city, setCity] = useState("");
   // eslint-disable-next-line
   const [weatherData, SetWeatherData] = useState([]);
+  // const [location, setLocation] = useState({ lat: Number(), lon: Number() });
   const [lat, setLat] = useState();
   const [lon, setLon] = useState();
   const dispatch = useDispatch();
@@ -27,6 +28,8 @@ function App() {
       }
     };
     const showPosition = (position) => {
+      // lat: position.coords.latitude,
+      // lon: position.coords.longitude,
       setLat(position.coords.latitude);
       setLon(position.coords.longitude);
     };
@@ -36,7 +39,7 @@ function App() {
   useEffect(() => {
     getWeather
       .get(
-        `/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY_WEATHER}&units=metric`
+        `/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY_WEATHER}&units=metric`
       )
       .then((res) => {
         console.log(res.data);
@@ -46,8 +49,23 @@ function App() {
         });
         SetWeatherData(res.data);
       });
-    // eslint-disable-next-line
+      // eslint-disable-next-line
   }, [lat, lon]);
+
+  // useEffect(() => {
+  //   getWeather
+  //     .get(
+  //       `/data/2.5/weather?q=${city}&appid=03838cfa6af6494abe9a10e2f9d3ef17&units=metric`
+  //     )
+  //     .then((res) => {
+  //       dispatch({
+  //         type: "ADD_DATA",
+  //         AddData: res.data,
+  //       });
+  //       SetWeatherData(res.data);
+  //     });
+  //   console.log(weatherData);
+  // }, [city]);
 
   return (
     <>
