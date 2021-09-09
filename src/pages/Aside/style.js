@@ -6,7 +6,8 @@ export const Container = styled.aside`
   background-color: rgba(0, 0, 0, 0.5);
   /* background-color: #fff; */
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 
 export const SearchBox = styled.div`
@@ -27,9 +28,8 @@ export const SearchInput = styled.input`
   font-size: 16px;
   outline: none;
 
-  &::placeholder{
+  &::placeholder {
     color: ${(props) => props.theme.colors.primary};
-
   }
 `;
 

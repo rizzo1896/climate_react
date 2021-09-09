@@ -36,7 +36,9 @@ function Home() {
     let hours = millitime.toLocaleString("pt-BR", { hour: "numeric" });
     let minutes = millitime.toLocaleString("pt-BR", { minute: "2-digit" });
 
-    return `${hours}:${minutes} - ${day}, ${date} ${month} ${year}`;
+    return `${hours}:${
+      minutes < 10 ? "0" + minutes : minutes
+    } - ${day}, ${date} ${month} ${year}`;
   };
 
   return (
@@ -44,7 +46,7 @@ function Home() {
       <MainContainer>
         <InfoBox>
           {isLoading && <span style={{ color: "white" }}>Loading...</span>}
-          {!isLoading && (
+          {!isLoading && data !== undefined && (
             <InfoContent>
               <Temp>{data.main.temp.toFixed(0)}º</Temp>
               <WrapInfo>

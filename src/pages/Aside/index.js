@@ -3,12 +3,13 @@ import { Container, SearchBox, SearchInput, SearchButton } from "./style";
 import SearchIcon from "@material-ui/icons/Search";
 import { getWeather } from "../../services/api";
 import { useDispatch } from "react-redux";
+import { RecentLocations } from "../../components";
 
 const Aside = () => {
   const [SearchValue, setSearchValue] = useState("");
   const dispatch = useDispatch();
 
-  const Submit = (e) => {
+  const Submit = () => {
     getWeather
       .get(
         `/data/2.5/weather?q=${SearchValue}&appid=${process.env.REACT_APP_API_KEY_WEATHER}&units=metric`
@@ -37,10 +38,11 @@ const Aside = () => {
           }}
           onKeyPress={handleKeyPress}
         />
-        <SearchButton>
-          <SearchIcon fontSize="large" onClick={Submit} />
+        <SearchButton onClick={Submit}>
+          <SearchIcon fontSize="large" />
         </SearchButton>
       </SearchBox>
+      <RecentLocations></RecentLocations>
     </Container>
   );
 };

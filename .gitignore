@@ -11,6 +11,7 @@
 # production
 /build
 .env
+.eslintrc
 
 # misc
 .DS_Store
