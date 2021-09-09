@@ -40,6 +40,7 @@ const RecentLocations = () => {
         <Item>Recent Locations</Item>
         {isLoading && <div>Loading...</div>}
         {!isLoading &&
+          data !== undefined &&
           recentLocations.map((item, index) => {
             return (
               <Item

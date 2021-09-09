@@ -1,7 +1,7 @@
 const theme = {
   colors: {
     primary: "#eee",
-    aside_color: "#6a7171",
+    aside_color: "#c9c6c5",
   },
   fonts: {
     primary: "'Jost', sans-serif",
