@@ -5,5 +5,5 @@ export const getWeather = axios.create({
 });
 
 export const getIconWeather = axios.create({
-  baseURL: "http://openweathermap.org/img/wn",
+  baseURL: "https://openweathermap.org/img/wn",
 });
