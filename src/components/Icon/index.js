@@ -19,10 +19,10 @@ function Icon() {
         responseType: "blob",
       })
       .then((res) => {
-        setIsLoading(false);
         let new_blob = new Blob([res.data], { type: "image/png" });
         let url = URL.createObjectURL(new_blob);
         setImgWeather(url);
+        setIsLoading(false);
       });
     setAltWeatherImg(data.weather.description);
   }, [data]);
@@ -35,7 +35,7 @@ function Icon() {
             <div>Loading...</div>
           </>
         )}
-        {!isLoading && (
+        {!isLoading && data !== undefined && (
           <>
             <img src={imgWeather} alt={altWeatherImg} />
           </>
