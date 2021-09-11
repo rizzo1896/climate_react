@@ -11,6 +11,7 @@ function Icon() {
   const data = useSelector((state) => state.WeatherData.data[0]);
   const [isLoading, setIsLoading] = useState(true);
   const [imgWeather, setImgWeather] = useState("");
+  const [altWeatherImg, setAltWeatherImg] = useState("");
 
   useEffect(() => {
     getIconWeather
@@ -23,6 +24,7 @@ function Icon() {
         let url = URL.createObjectURL(new_blob);
         setImgWeather(url);
       });
+    setAltWeatherImg(data.weather.description);
   }, [data]);
 
   return (
@@ -35,7 +37,7 @@ function Icon() {
         )}
         {!isLoading && (
           <>
-            <img src={imgWeather} />
+            <img src={imgWeather} alt={altWeatherImg} />
           </>
         )}
       </Container>
