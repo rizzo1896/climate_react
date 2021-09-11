@@ -15,7 +15,7 @@ function Icon() {
 
   useEffect(() => {
     getIconWeather
-      .get(`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`, {
+      .get(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`, {
         responseType: "blob",
       })
       .then((res) => {
