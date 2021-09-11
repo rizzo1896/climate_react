@@ -10,19 +10,24 @@ import {
   Icon,
 } from "./style";
 import { Icons } from "../../components";
-import IconSvg from "../../assets/icons/rainy-icon.json";
 import { useSelector } from "react-redux";
 
 function Home() {
   const data = useSelector((state) => state.WeatherData.data[0]);
+  const time = useSelector((state) => state.WeatherData.timeZone[0]);
   const [isLoading, setIsLoading] = useState(true);
+  const [newTime, setNewTime] = useState("");
 
   useEffect(() => {
     console.log(data);
-    setTimeout(() => {
+    console.log(time);
+    if (time === undefined && data === undefined) {
+      setIsLoading(true);
+    } else {
+      setNewTime(dateBuilder(time));
       setIsLoading(false);
-    }, 1000);
-  }, [data]);
+    }
+  }, [data, time]);
 
   const dateBuilder = (timezone) => {
     const nowInLocalTime = Date.now() + 1000 * (timezone / 3600);
@@ -51,11 +56,11 @@ function Home() {
               <Temp>{data.main.temp.toFixed(0)}º</Temp>
               <WrapInfo>
                 <Location>{data.name}</Location>
-                <InfoDate>{dateBuilder(data.timezone)}</InfoDate>
+                <InfoDate>{newTime}</InfoDate>
               </WrapInfo>
               <WrapInfo>
                 <Icon>
-                  <Icons data={IconSvg} />
+                  <Icons />
                 </Icon>
               </WrapInfo>
             </InfoContent>

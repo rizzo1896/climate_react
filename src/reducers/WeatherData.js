@@ -1,6 +1,7 @@
 const initialState = {
   data: [],
   recentLocations: [],
+  timeZone: [],
 };
 
 const List = (state = initialState, action) => {
@@ -13,6 +14,7 @@ const List = (state = initialState, action) => {
       return {
         data: [action.AddData],
         recentLocations: [...state.recentLocations, action.AddData],
+        timeZone: [action.newTimeZone],
       };
 
     default:

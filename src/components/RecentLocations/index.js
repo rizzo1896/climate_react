@@ -57,7 +57,7 @@ const RecentLocations = () => {
       </Container>
       <Container>
         {isLoading && <div>Loading...</div>}
-        {!isLoading && (
+        {!isLoading && data !== undefined && (
           <>
             <Item>Weather Details</Item>
             <Wrapp>
@@ -74,7 +74,9 @@ const RecentLocations = () => {
             </Wrapp>
             <Wrapp>
               <ItemAlt>Rain</ItemAlt>
-              <ItemAlt>{data.rain ? data.rain["1h"] * 10 : "0"}mm</ItemAlt>
+              <ItemAlt>
+                {data.rain ? (data.rain["1h"] * 10).toFixed(0) : "0"}mm
+              </ItemAlt>
             </Wrapp>
           </>
         )}

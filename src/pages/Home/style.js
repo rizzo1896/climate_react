@@ -16,9 +16,19 @@ export const InfoBox = styled.div`
 `;
 
 export const InfoContent = styled.div`
+  @keyframes moveup {
+    from {
+      transform: translateY(+50%);
+    }
+    to {
+      transform: translateY(0%);
+    }
+  }
+  transition: all ease 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: moveup 0.2s;
 `;
 
 export const Temp = styled.div`

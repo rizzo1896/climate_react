@@ -18,6 +18,7 @@ const Aside = () => {
         dispatch({
           type: "ADD_DATA",
           AddData: res.data,
+          newTimeZone: res.data.timezone,
         });
       });
   };
